@@ -59,6 +59,16 @@ http://localhost:3000
 pnpm run build
 ```
 
+## GitHub Pages
+
+La publicacion se ejecuta automaticamente con GitHub Actions cada vez que hay cambios en `main`. El workflow genera el sitio estatico y prepara las rutas para que funcionen bajo el subdirectorio del repositorio.
+
+URL esperada:
+
+```text
+https://cobian04.github.io/CENAC/
+```
+
 ## Estructura Principal
 
 ```text
@@ -75,6 +85,7 @@ tests/             Pruebas del render
 ```bash
 pnpm run dev       Inicia el servidor local
 pnpm run build     Genera y valida el build
+pnpm run pages:prepare Prepara el artefacto para GitHub Pages
 pnpm run start     Inicia el servidor de produccion
 pnpm run test      Ejecuta build y pruebas
 pnpm run lint      Ejecuta ESLint
