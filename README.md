@@ -61,13 +61,22 @@ pnpm run build
 
 ## GitHub Pages
 
-La publicacion se ejecuta automaticamente con GitHub Actions cada vez que hay cambios en `main`. El workflow genera el sitio estatico y prepara las rutas para que funcionen bajo el subdirectorio del repositorio.
+La publicacion se realiza desde la rama `gh-pages`. El sitio se genera como artefacto estatico y se publica en la raiz de esa rama.
 
 URL esperada:
 
 ```text
 https://cobian04.github.io/CENAC/
 ```
+
+Para publicar una nueva version:
+
+```bash
+pnpm run build
+pnpm run pages:prepare
+```
+
+Despues se sube el contenido de `dist/client` a la rama `gh-pages`.
 
 ## Estructura Principal
 
