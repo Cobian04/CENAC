@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type MouseEvent, useEffect, useState } from "react";
 
 type Lang = "es" | "en";
 
@@ -117,6 +117,38 @@ export default function Home() {
   const [dark, setDark] = useState(false);
   const t = copy[lang];
 
+  const handleAnchorClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    id: string,
+  ) => {
+    const target = document.getElementById(id);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+    event.currentTarget.blur();
+
+    const headerHeight =
+      document.querySelector<HTMLElement>(".site-header")?.offsetHeight ?? 0;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const top = Math.max(
+      target.getBoundingClientRect().top + window.scrollY - headerHeight - 18,
+      0,
+    );
+
+    window.history.pushState(null, "", `#${id}`);
+    window.scrollTo({
+      top,
+      behavior: reducedMotion ? "auto" : "smooth",
+    });
+
+    window.requestAnimationFrame(() => {
+      window.dispatchEvent(new Event("scroll"));
+    });
+  };
+
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
@@ -231,13 +263,23 @@ export default function Home() {
     <main className="min-h-screen text-[var(--ink)]">
       <header className="site-header">
         <div className="site-header-inner">
-          <a href="#inicio" className="brand-mark" aria-label="CENAC">
+          <a
+            href="#inicio"
+            className="brand-mark"
+            aria-label="CENAC"
+            onClick={(event) => handleAnchorClick(event, "inicio")}
+          >
             CENAC
           </a>
 
           <nav className="site-nav" aria-label="Navegacion principal">
             {t.nav.map(([id, label]) => (
-              <a className="nav-link" href={`#${id}`} key={id}>
+              <a
+                className="nav-link"
+                href={`#${id}`}
+                key={id}
+                onClick={(event) => handleAnchorClick(event, id)}
+              >
                 {label}
               </a>
             ))}
@@ -342,7 +384,11 @@ export default function Home() {
         </div>
         <nav aria-label="Navegacion secundaria">
           {t.nav.map(([id, label]) => (
-            <a href={`#${id}`} key={id}>
+            <a
+              href={`#${id}`}
+              key={id}
+              onClick={(event) => handleAnchorClick(event, id)}
+            >
               {label}
             </a>
           ))}
