@@ -222,11 +222,12 @@ button:focus-visible {
   --loop-rotate: 6deg;
   position: absolute;
   display: block;
-  width: clamp(13rem, 34vw, 35rem);
-  height: clamp(7rem, 22vw, 22rem);
-  opacity: 0.42;
+  width: clamp(18rem, 44vw, 48rem);
+  height: clamp(10rem, 28vw, 30rem);
+  opacity: 0.62;
   transform-origin: center;
-  filter: saturate(0.96);
+  filter: saturate(1.08) drop-shadow(0 12px 22px color-mix(in srgb, var(--teal) 11%, transparent));
+  mix-blend-mode: multiply;
 }
 
 .ornament::before,
@@ -240,26 +241,36 @@ button:focus-visible {
   top: 48%;
   right: 0;
   left: 0;
-  height: clamp(0.45rem, 1vw, 0.95rem);
+  height: clamp(0.85rem, 1.45vw, 1.45rem);
   border-radius: 999px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--ornament-a) 15%,
-    var(--ornament-b) 55%,
+    var(--ornament-a) 11%,
+    var(--ornament-b) 48%,
+    var(--ornament-line) 72%,
     transparent 100%
   );
+  box-shadow:
+    0 clamp(1.1rem, 2vw, 1.85rem) 0 clamp(-0.56rem, -0.65vw, -0.32rem) color-mix(in srgb, var(--ornament-line) 72%, transparent),
+    0 clamp(-1.35rem, -2.2vw, -1.1rem) 0 clamp(-0.72rem, -0.8vw, -0.42rem) color-mix(in srgb, var(--ornament-a) 60%, transparent);
   transform: rotate(var(--stroke-rotate)) skewX(-12deg);
   mask-image: linear-gradient(90deg, transparent 0%, black 18%, black 82%, transparent 100%);
 }
 
 .ornament::after {
-  inset: 12% 8% 20% 10%;
-  border-top: 2px solid var(--ornament-line);
-  border-right: 2px solid var(--ornament-line);
+  inset: 10% 3% 16% 6%;
+  border-top: 3px solid var(--ornament-line);
+  border-right: 3px solid var(--ornament-line);
   border-radius: 52% 48% 46% 54%;
-  opacity: 0.7;
-  transform: rotate(var(--loop-rotate)) scaleX(1.18);
+  opacity: 0.9;
+  transform: rotate(var(--loop-rotate)) scaleX(1.24);
+}
+
+.dark .ornament {
+  opacity: 0.38;
+  filter: saturate(1.02);
+  mix-blend-mode: normal;
 }
 
 .ornament-sweep {
@@ -281,24 +292,25 @@ button:focus-visible {
 }
 
 .hero-ornaments .ornament-left {
-  top: 43%;
+  top: 39%;
   left: 0;
-  transform: translateX(-42%) rotate(-9deg);
+  transform: translateX(-30%) rotate(-9deg);
 }
 
 .hero-ornaments .ornament-right {
-  top: 12%;
+  top: 8%;
   right: 0;
-  height: clamp(10rem, 38vw, 31rem);
-  transform: translateX(46%) rotate(7deg);
+  width: clamp(20rem, 48vw, 52rem);
+  height: clamp(12rem, 40vw, 34rem);
+  transform: translateX(32%) rotate(7deg);
 }
 
 .hero-ornaments .ornament-bottom {
   bottom: clamp(2.8rem, 6vw, 5.4rem);
-  left: 34%;
-  width: clamp(15rem, 42vw, 40rem);
-  height: clamp(5rem, 12vw, 11rem);
-  opacity: 0.26;
+  left: 28%;
+  width: clamp(19rem, 50vw, 46rem);
+  height: clamp(6rem, 15vw, 13rem);
+  opacity: 0.44;
   transform: rotate(-2deg);
 }
 
@@ -531,43 +543,43 @@ button:focus-visible {
 }
 
 .section-ornaments .ornament {
-  opacity: 0.25;
+  opacity: 0.46;
 }
 
 .about-ornaments .ornament-left {
-  top: 8%;
+  top: 4%;
   left: 0;
-  transform: translateX(-48%) rotate(6deg);
+  transform: translateX(-34%) rotate(6deg);
 }
 
 .about-ornaments .ornament-right {
   right: 0;
-  bottom: 11%;
-  transform: translateX(54%) rotate(-12deg);
+  bottom: 7%;
+  transform: translateX(38%) rotate(-12deg);
 }
 
 .courses-ornaments .ornament-left {
-  top: 18%;
+  top: 12%;
   left: 0;
-  transform: translateX(-50%) rotate(-16deg);
+  transform: translateX(-35%) rotate(-16deg);
 }
 
 .courses-ornaments .ornament-right {
   right: 0;
-  bottom: 2%;
-  transform: translateX(52%) rotate(8deg);
+  bottom: -4%;
+  transform: translateX(36%) rotate(8deg);
 }
 
 .donations-ornaments .ornament-left {
-  bottom: 8%;
+  bottom: 2%;
   left: 2%;
-  transform: translateX(-50%) rotate(12deg);
+  transform: translateX(-36%) rotate(12deg);
 }
 
 .donations-ornaments .ornament-right {
-  top: 4%;
+  top: 0;
   right: 0;
-  transform: translateX(52%) rotate(-7deg);
+  transform: translateX(36%) rotate(-7deg);
 }
 
 .page-section:nth-child(2) .section-image {
@@ -806,9 +818,9 @@ button:focus-visible {
   }
 
   .ornament {
-    width: clamp(12rem, 48vw, 24rem);
-    height: clamp(6rem, 26vw, 15rem);
-    opacity: 0.28;
+    width: clamp(16rem, 58vw, 30rem);
+    height: clamp(8rem, 32vw, 18rem);
+    opacity: 0.42;
   }
 
   .hero-ornaments .ornament-left {
@@ -817,7 +829,7 @@ button:focus-visible {
 
   .hero-ornaments .ornament-right {
     top: 48%;
-    transform: translateX(58%) rotate(9deg);
+    transform: translateX(42%) rotate(9deg);
   }
 
   .hero-copy-block h1 {
@@ -884,11 +896,11 @@ button:focus-visible {
   }
 
   .ornament {
-    opacity: 0.18;
+    opacity: 0.28;
   }
 
   .ornament::before {
-    height: 0.42rem;
+    height: 0.62rem;
   }
 
   .ornament::after {
