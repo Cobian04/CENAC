@@ -311,6 +311,11 @@ export default function Home() {
         <div className="hero-progress" aria-hidden="true">
           <span />
         </div>
+        <div className="ornament-field hero-ornaments" aria-hidden="true">
+          <span className="ornament ornament-sweep ornament-left" />
+          <span className="ornament ornament-ribbon ornament-right" />
+          <span className="ornament ornament-thread ornament-bottom" />
+        </div>
         <div className="hero-copy-block reveal">
           <h1>{t.title}</h1>
           <p className="hero-paragraph">{t.paragraph}</p>
@@ -336,6 +341,10 @@ export default function Home() {
 
       <section className="section-stack" aria-label="Informacion de CENAC">
         <article id="quienes-somos" className="page-section reveal">
+          <div className="ornament-field section-ornaments about-ornaments" aria-hidden="true">
+            <span className="ornament ornament-thread ornament-left" />
+            <span className="ornament ornament-sweep ornament-right" />
+          </div>
           <div className="section-content">
             <p className="section-kicker">{t.sections.aboutKicker}</p>
             <h2>{t.sections.aboutTitle}</h2>
@@ -351,6 +360,10 @@ export default function Home() {
         </article>
 
         <article id="clases-cursos" className="page-section reveal">
+          <div className="ornament-field section-ornaments courses-ornaments" aria-hidden="true">
+            <span className="ornament ornament-ribbon ornament-left" />
+            <span className="ornament ornament-thread ornament-right" />
+          </div>
           <div className="section-content">
             <p className="section-kicker">{t.sections.coursesKicker}</p>
             <h2>{t.sections.coursesTitle}</h2>
@@ -366,6 +379,10 @@ export default function Home() {
         </article>
 
         <article id="donaciones" className="page-section reveal">
+          <div className="ornament-field section-ornaments donations-ornaments" aria-hidden="true">
+            <span className="ornament ornament-sweep ornament-left" />
+            <span className="ornament ornament-ribbon ornament-right" />
+          </div>
           <div className="section-content">
             <p className="section-kicker">{t.sections.donationsKicker}</p>
             <h2>{t.sections.donationsTitle}</h2>

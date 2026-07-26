@@ -206,6 +206,102 @@ button:focus-visible {
   animation: progress-drift 2.8s ease-in-out infinite alternate;
 }
 
+.ornament-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ornament {
+  --ornament-a: var(--terracotta);
+  --ornament-b: var(--ochre);
+  --ornament-line: var(--olive);
+  --stroke-rotate: -8deg;
+  --loop-rotate: 6deg;
+  position: absolute;
+  display: block;
+  width: clamp(13rem, 34vw, 35rem);
+  height: clamp(7rem, 22vw, 22rem);
+  opacity: 0.42;
+  transform-origin: center;
+  filter: saturate(0.96);
+}
+
+.ornament::before,
+.ornament::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.ornament::before {
+  top: 48%;
+  right: 0;
+  left: 0;
+  height: clamp(0.45rem, 1vw, 0.95rem);
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--ornament-a) 15%,
+    var(--ornament-b) 55%,
+    transparent 100%
+  );
+  transform: rotate(var(--stroke-rotate)) skewX(-12deg);
+  mask-image: linear-gradient(90deg, transparent 0%, black 18%, black 82%, transparent 100%);
+}
+
+.ornament::after {
+  inset: 12% 8% 20% 10%;
+  border-top: 2px solid var(--ornament-line);
+  border-right: 2px solid var(--ornament-line);
+  border-radius: 52% 48% 46% 54%;
+  opacity: 0.7;
+  transform: rotate(var(--loop-rotate)) scaleX(1.18);
+}
+
+.ornament-sweep {
+  --ornament-a: var(--terracotta);
+  --ornament-b: var(--ochre);
+  --ornament-line: var(--olive);
+}
+
+.ornament-ribbon {
+  --ornament-a: var(--teal);
+  --ornament-b: var(--olive);
+  --ornament-line: var(--terracotta);
+}
+
+.ornament-thread {
+  --ornament-a: var(--ochre);
+  --ornament-b: var(--terracotta);
+  --ornament-line: var(--teal);
+}
+
+.hero-ornaments .ornament-left {
+  top: 43%;
+  left: 0;
+  transform: translateX(-42%) rotate(-9deg);
+}
+
+.hero-ornaments .ornament-right {
+  top: 12%;
+  right: 0;
+  height: clamp(10rem, 38vw, 31rem);
+  transform: translateX(46%) rotate(7deg);
+}
+
+.hero-ornaments .ornament-bottom {
+  bottom: clamp(2.8rem, 6vw, 5.4rem);
+  left: 34%;
+  width: clamp(15rem, 42vw, 40rem);
+  height: clamp(5rem, 12vw, 11rem);
+  opacity: 0.26;
+  transform: rotate(-2deg);
+}
+
 .hero-copy-block {
   width: min(100%, 820px);
   z-index: 3;
@@ -366,6 +462,8 @@ button:focus-visible {
 }
 
 .section-content {
+  position: relative;
+  z-index: 2;
   max-width: 780px;
   padding-inline: clamp(0.35rem, 1.5vw, 1.25rem);
 }
@@ -409,12 +507,67 @@ button:focus-visible {
 
 .section-image {
   position: relative;
+  z-index: 2;
   align-self: center;
   justify-self: end;
   width: min(100%, 680px);
   margin: 0;
   overflow: visible;
   filter: drop-shadow(0 22px 34px var(--shadow));
+}
+
+.section-ornaments {
+  z-index: 0;
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 900ms 180ms cubic-bezier(0.2, 0.75, 0.2, 1),
+    transform 900ms 180ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.page-section.is-visible .section-ornaments {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-ornaments .ornament {
+  opacity: 0.25;
+}
+
+.about-ornaments .ornament-left {
+  top: 8%;
+  left: 0;
+  transform: translateX(-48%) rotate(6deg);
+}
+
+.about-ornaments .ornament-right {
+  right: 0;
+  bottom: 11%;
+  transform: translateX(54%) rotate(-12deg);
+}
+
+.courses-ornaments .ornament-left {
+  top: 18%;
+  left: 0;
+  transform: translateX(-50%) rotate(-16deg);
+}
+
+.courses-ornaments .ornament-right {
+  right: 0;
+  bottom: 2%;
+  transform: translateX(52%) rotate(8deg);
+}
+
+.donations-ornaments .ornament-left {
+  bottom: 8%;
+  left: 2%;
+  transform: translateX(-50%) rotate(12deg);
+}
+
+.donations-ornaments .ornament-right {
+  top: 4%;
+  right: 0;
+  transform: translateX(52%) rotate(-7deg);
 }
 
 .page-section:nth-child(2) .section-image {
@@ -652,6 +805,21 @@ button:focus-visible {
     gap: 1.6rem;
   }
 
+  .ornament {
+    width: clamp(12rem, 48vw, 24rem);
+    height: clamp(6rem, 26vw, 15rem);
+    opacity: 0.28;
+  }
+
+  .hero-ornaments .ornament-left {
+    top: 22%;
+  }
+
+  .hero-ornaments .ornament-right {
+    top: 48%;
+    transform: translateX(58%) rotate(9deg);
+  }
+
   .hero-copy-block h1 {
     max-width: 12ch;
   }
@@ -715,6 +883,24 @@ button:focus-visible {
     gap: 1.25rem;
   }
 
+  .ornament {
+    opacity: 0.18;
+  }
+
+  .ornament::before {
+    height: 0.42rem;
+  }
+
+  .ornament::after {
+    border-top-width: 1px;
+    border-right-width: 1px;
+  }
+
+  .hero-ornaments .ornament-bottom,
+  .section-ornaments .ornament-right {
+    display: none;
+  }
+
   .hero-copy-block h1 {
     max-width: 12.3ch;
     font-size: clamp(2.18rem, 8.45vw, 2.95rem);
@@ -744,8 +930,8 @@ button:focus-visible {
     font-size: clamp(2.2rem, 10vw, 3.4rem);
   }
 
-  .site-footer h2 {
-    font-size: clamp(1.2rem, 6vw, 1.7rem);
+  .footer-logo {
+    width: min(15rem, 76vw);
   }
 
   .section-content {
