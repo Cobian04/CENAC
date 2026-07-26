@@ -269,7 +269,12 @@ export default function Home() {
             aria-label="CENAC"
             onClick={(event) => handleAnchorClick(event, "inicio")}
           >
-            CENAC
+            <img
+              src="/assets/cenac-logo-symbol.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <span>CENAC</span>
           </a>
 
           <nav className="site-nav" aria-label="Navegacion principal">
@@ -378,7 +383,11 @@ export default function Home() {
 
       <footer className="site-footer reveal">
         <div>
-          <h2>{t.footer.title}</h2>
+          <img
+            className="footer-logo"
+            src="/assets/cenac-logo-full.png"
+            alt="Centro del Arte y Cultura CENAC Fundacion Cultural"
+          />
           <p>{t.footer.text}</p>
           <small>© 2026 CENAC. {t.footer.rights}</small>
         </div>

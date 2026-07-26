@@ -34,4 +34,5 @@ test("renders the CENAC homepage", async () => {
   assert.match(html, /Clases y cursos/);
   assert.match(html, /Donaciones/);
   assert.match(html, /Clases de computacion/);
+  assert.match(html, /cenac-logo-symbol\.png/);
 });

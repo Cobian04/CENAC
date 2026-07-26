@@ -4,6 +4,7 @@ Sitio web editorial para CENAC, un espacio cultural enfocado en arte, comunidad 
 
 ## Caracteristicas
 
+- Identidad visual con logotipo oficial de CENAC.
 - Hero editorial responsivo con fotografia destacada.
 - Ticker inferior dentro de la pantalla inicial con clases disponibles:
   - Computacion
@@ -29,6 +30,14 @@ Sitio web editorial para CENAC, un espacio cultural enfocado en arte, comunidad 
 - Vite
 - Tailwind CSS
 - TypeScript
+
+## Paleta
+
+- Terracota: `#D96B43`
+- Ocre calido: `#E5A653`
+- Teal obsidiana: `#2B6B72`
+- Verde olivo: `#828A58`
+- Crema base: `#F5F2E6`
 
 ## Requisitos
 

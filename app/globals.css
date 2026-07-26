@@ -1,31 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #fbf4ec;
-  --cream-mid: #f6eadc;
-  --cream-deep: #ead8c8;
-  --ink: #241d1a;
-  --muted: #756a65;
-  --line: rgba(36, 29, 26, 0.1);
-  --accent-text: #86685c;
-  --shadow: rgba(96, 73, 62, 0.12);
-  --footer-bg: #241d1a;
-  --footer-ink: #fbf4ec;
-  --footer-muted: rgba(251, 244, 236, 0.72);
+  --terracotta: #d96b43;
+  --ochre: #e5a653;
+  --teal: #2b6b72;
+  --olive: #828a58;
+  --cream: #f5f2e6;
+  --cream-mid: #efe7d5;
+  --cream-deep: #e6dcc8;
+  --ink: #243d40;
+  --heading: #2b6b72;
+  --muted: #697064;
+  --line: rgba(43, 107, 114, 0.16);
+  --accent-text: #d96b43;
+  --accent-soft: rgba(229, 166, 83, 0.22);
+  --shadow: rgba(43, 107, 114, 0.14);
+  --footer-bg: #2b6b72;
+  --footer-ink: #f5f2e6;
+  --footer-muted: rgba(245, 242, 230, 0.76);
 }
 
 .dark {
-  --cream: #24201d;
-  --cream-mid: #2b2520;
-  --cream-deep: #332a24;
-  --ink: #fff6ec;
-  --muted: #dccdc1;
-  --line: rgba(255, 246, 236, 0.14);
-  --accent-text: #e7cabc;
-  --shadow: rgba(0, 0, 0, 0.26);
-  --footer-bg: #fff6ec;
-  --footer-ink: #241d1a;
-  --footer-muted: rgba(36, 29, 26, 0.68);
+  --cream: #162f33;
+  --cream-mid: #1d3b3f;
+  --cream-deep: #24464b;
+  --ink: #f5f2e6;
+  --heading: #f5f2e6;
+  --muted: #d7d2bf;
+  --line: rgba(245, 242, 230, 0.16);
+  --accent-text: #e5a653;
+  --accent-soft: rgba(217, 107, 67, 0.24);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --footer-bg: #f5f2e6;
+  --footer-ink: #2b6b72;
+  --footer-muted: rgba(43, 107, 114, 0.72);
 }
 
 * {
@@ -41,7 +49,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-mid) 48%, var(--cream-deep) 100%);
+  background:
+    radial-gradient(circle at 86% 14%, var(--accent-soft) 0, transparent 22rem),
+    linear-gradient(180deg, var(--cream) 0%, var(--cream-mid) 52%, var(--cream-deep) 100%);
   color: var(--ink);
   font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
 }
@@ -57,12 +67,12 @@ button {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--accent-text) 70%, white);
+  outline: 3px solid color-mix(in srgb, var(--ochre) 78%, white);
   outline-offset: 4px;
 }
 
 ::selection {
-  background: var(--ink);
+  background: var(--terracotta);
   color: var(--cream);
 }
 
@@ -71,7 +81,7 @@ button:focus-visible {
   top: 0;
   z-index: 50;
   width: 100%;
-  background: color-mix(in srgb, var(--cream) 88%, transparent);
+  background: color-mix(in srgb, var(--cream) 86%, transparent);
   backdrop-filter: blur(14px);
   animation: fade-down 520ms ease both;
 }
@@ -87,11 +97,27 @@ button:focus-visible {
 }
 
 .brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   flex: 0 0 auto;
   font-size: clamp(1rem, 1.5vw, 1.28rem);
   font-weight: 950;
   line-height: 1;
   letter-spacing: 0;
+  color: var(--heading);
+}
+
+.brand-mark img {
+  width: clamp(2.35rem, 4vw, 3.35rem);
+  height: clamp(2.35rem, 4vw, 3.35rem);
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.dark .brand-mark img,
+.dark .footer-logo {
+  mix-blend-mode: normal;
 }
 
 .site-nav {
@@ -100,7 +126,7 @@ button:focus-visible {
   align-items: center;
   justify-content: flex-end;
   gap: 0.65rem 1.55rem;
-  color: var(--muted);
+  color: color-mix(in srgb, var(--teal) 72%, var(--muted));
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -131,7 +157,7 @@ button:focus-visible {
   left: 0;
   height: 1px;
   content: "";
-  background: var(--ink);
+  background: var(--terracotta);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 180ms ease;
@@ -176,7 +202,7 @@ button:focus-visible {
   display: block;
   width: 42%;
   height: 100%;
-  background: var(--ink);
+  background: linear-gradient(90deg, var(--terracotta), var(--ochre), var(--teal));
   animation: progress-drift 2.8s ease-in-out infinite alternate;
 }
 
@@ -197,12 +223,13 @@ button:focus-visible {
   font-weight: 950;
   line-height: 0.94;
   letter-spacing: 0;
+  color: var(--heading);
 }
 
 .hero-paragraph {
   max-width: 34rem;
   margin: clamp(1.4rem, 3vw, 2.2rem) 0 0;
-  color: var(--muted);
+  color: color-mix(in srgb, var(--muted) 84%, var(--teal));
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(1.06rem, 1.38vw, 1.35rem);
   font-weight: 300;
@@ -234,8 +261,8 @@ button:focus-visible {
   width: 76%;
   height: 72%;
   content: "";
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-right: 1px solid color-mix(in srgb, var(--terracotta) 52%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--olive) 52%, transparent);
 }
 
 .hero-photo img {
@@ -251,7 +278,7 @@ button:focus-visible {
 .hero-photo figcaption,
 .section-image figcaption {
   margin-top: clamp(0.85rem, 1.4vw, 1.15rem);
-  color: var(--muted);
+  color: color-mix(in srgb, var(--olive) 78%, var(--muted));
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
@@ -271,7 +298,7 @@ button:focus-visible {
   right: clamp(1.4rem, 3vw, 2.4rem);
   bottom: clamp(1.4rem, 3vw, 2.4rem);
   margin: 0;
-  color: var(--muted);
+  color: var(--olive);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.16em;
@@ -289,10 +316,10 @@ button:focus-visible {
   margin: 0;
   padding: 0.65rem 0;
   overflow: hidden;
-  color: var(--ink);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--cream) 58%, transparent);
+  color: var(--heading);
+  border-top: 1px solid color-mix(in srgb, var(--terracotta) 28%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--olive) 26%, transparent);
+  background: color-mix(in srgb, var(--cream) 72%, var(--ochre));
   font-size: clamp(0.95rem, 2.2vw, 1.55rem);
   font-weight: 950;
   line-height: 1;
@@ -310,7 +337,7 @@ button:focus-visible {
 
 .marquee-strip span::after {
   content: " · ";
-  color: var(--accent-text);
+  color: var(--terracotta);
 }
 
 .section-stack {
@@ -345,7 +372,7 @@ button:focus-visible {
 
 .section-kicker {
   margin: 0 0 0.9rem;
-  color: var(--accent-text);
+  color: var(--terracotta);
   font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 0.12em;
@@ -358,6 +385,7 @@ button:focus-visible {
   font-weight: 950;
   line-height: 0.9;
   letter-spacing: 0;
+  color: var(--heading);
   transform: translateX(-28px);
   transition: transform 900ms cubic-bezier(0.16, 0.9, 0.2, 1);
 }
@@ -365,7 +393,7 @@ button:focus-visible {
 .page-section p:not(.section-kicker) {
   max-width: 44rem;
   margin: 0;
-  color: var(--muted);
+  color: color-mix(in srgb, var(--muted) 84%, var(--teal));
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(1.05rem, 1.5vw, 1.35rem);
   font-weight: 300;
@@ -470,8 +498,8 @@ button:focus-visible {
   height: 68%;
   content: "";
   pointer-events: none;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-right: 1px solid color-mix(in srgb, var(--ochre) 48%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--teal) 40%, transparent);
 }
 
 .section-image img {
@@ -519,15 +547,17 @@ button:focus-visible {
   margin: clamp(1rem, 3vw, 2rem) 0 0;
   padding: clamp(2.4rem, 5vw, 4rem) max(clamp(1.75rem, 7vw, 4rem), calc((100vw - 1360px) / 2));
   color: var(--footer-ink);
-  background: var(--footer-bg);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--footer-bg) 92%, black), var(--footer-bg)),
+    var(--footer-bg);
 }
 
-.site-footer h2 {
-  margin: 0;
-  font-size: clamp(1.2rem, 2vw, 1.7rem);
-  font-weight: 950;
-  line-height: 1;
-  letter-spacing: 0;
+.footer-logo {
+  display: block;
+  width: min(18rem, 72vw);
+  height: auto;
+  background: var(--cream);
+  border: 1px solid rgba(245, 242, 230, 0.14);
 }
 
 .site-footer p {
