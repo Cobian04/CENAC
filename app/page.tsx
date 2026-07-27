@@ -270,7 +270,7 @@ export default function Home() {
             onClick={(event) => handleAnchorClick(event, "inicio")}
           >
             <img
-              src="/assets/cenac-logo-symbol.png"
+              src="/assets/cenac-logo-symbol-transparent.png"
               alt=""
               aria-hidden="true"
             />

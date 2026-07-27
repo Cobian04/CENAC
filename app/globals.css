@@ -112,11 +112,6 @@ button:focus-visible {
   width: clamp(2.35rem, 4vw, 3.35rem);
   height: clamp(2.35rem, 4vw, 3.35rem);
   object-fit: contain;
-  mix-blend-mode: multiply;
-}
-
-.dark .brand-mark img {
-  mix-blend-mode: normal;
 }
 
 .site-nav {

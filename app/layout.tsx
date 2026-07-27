@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/assets/cenac-logo-symbol.png",
+        url: "/assets/cenac-logo-symbol-transparent.png",
         type: "image/png",
       },
     ],
-    shortcut: "/assets/cenac-logo-symbol.png",
-    apple: "/assets/cenac-logo-symbol.png",
+    shortcut: "/assets/cenac-logo-symbol-transparent.png",
+    apple: "/assets/cenac-logo-symbol-transparent.png",
   },
 };
 
