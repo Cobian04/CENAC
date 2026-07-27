@@ -22,6 +22,7 @@ async function rewriteStaticPaths(file) {
     .replaceAll("'/assets/", "'./assets/")
     .replaceAll('\\"/assets/', '\\"./assets/')
     .replaceAll("\\'/assets/", "\\'./assets/")
+    .replaceAll('href="/assets/', 'href="./assets/')
     .replaceAll('href="/favicon.svg"', 'href="./favicon.svg"')
     .replaceAll('href="/file.svg"', 'href="./file.svg"')
     .replaceAll('href="/globe.svg"', 'href="./globe.svg"')

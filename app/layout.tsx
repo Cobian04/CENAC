@@ -6,8 +6,9 @@ export const metadata: Metadata = {
   description:
     "Centro cultural con talleres, cursos y experiencias comunitarias de arte, musica y creatividad.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/assets/cenac-logo-symbol.png",
+    shortcut: "/assets/cenac-logo-symbol.png",
+    apple: "/assets/cenac-logo-symbol.png",
   },
 };
 

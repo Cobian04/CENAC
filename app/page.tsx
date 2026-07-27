@@ -400,11 +400,7 @@ export default function Home() {
 
       <footer className="site-footer reveal">
         <div>
-          <img
-            className="footer-logo"
-            src="/assets/cenac-logo-full.png"
-            alt="Centro del Arte y Cultura CENAC Fundacion Cultural"
-          />
+          <h2>{t.footer.title}</h2>
           <p>{t.footer.text}</p>
           <small>© 2026 CENAC. {t.footer.rights}</small>
         </div>
